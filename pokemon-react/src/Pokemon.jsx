@@ -7,7 +7,7 @@ export const Pokemon = () => {
   const [error, setError] = useState(null);
   const [search, setSearch] = useState("");
 
-  const API = "https://pokeapi.co/api/v2/pokemon?limit=1124";
+  const API = "https://pokeapi.co/api/v2/pokemon?limit=124";
 
   const fetchPokemon = async () => {
     try {
@@ -19,13 +19,13 @@ export const Pokemon = () => {
         const data = await res.json();
         return data;
       });
-      //  console.log(detailedPokemonData)
+    //    console.log(detailedPokemonData)
       const detailedResponses = await Promise.all(detailedPokemonData);
       console.log(detailedResponses);
       setPokemon(detailedResponses);
       setLoading(false);
     } catch (error) {
-      console.log(error);
+    //   console.log(error);
       setLoading(false);
       setError(error);
     }
@@ -61,7 +61,7 @@ export const Pokemon = () => {
     <>
       <section className="container">
         <header>
-          <h1>Lets Catch Pokemon</h1>
+          <h1>Lets Catch Pokémon</h1>
         </header>
         <div className="pokemon-search">
           <input
@@ -71,6 +71,7 @@ export const Pokemon = () => {
             onChange={(e) => setSearch(e.target.value)}
           />
         </div>
+        <h2 style={{fontSize:"2rem",paddingBottom:"2rem",color:"#2AD7F8"}}>Developed by: <span style={{fontSize:"3rem",color:"#2AD87F"}}>M.Anees</span></h2>
         <div>
           <ul className="cards">
             {
